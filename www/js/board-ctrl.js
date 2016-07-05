@@ -1,6 +1,6 @@
 angular.module('tltApp')
 
-.controller('BoardCtrl', function($scope, $ionicHistory) {
+.controller('BoardCtrl', function($scope, $ionicHistory, $ionicModal) {
     $ionicHistory.nextViewOptions({
         disableBack: true
     });
@@ -46,4 +46,31 @@ angular.module('tltApp')
                 return false;
         }
     };
+
+    $ionicModal.fromTemplateUrl('templates/addtext-modal.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $scope.boardModal = modal;
+    });
+    $scope.showBoardModal = function() {
+        $scope.boardModal.show();
+    };
+    $scope.hideBoardModal = function() {
+        $scope.boardModal.hide();
+    };
+
+    $scope.openModal = function(val) {
+        console.log(val);
+        $scope.boardModal.show();
+        switch (val) {
+            case 'foo1':
+                return $scope.foo1 = true;
+            case 'foo2':
+                return $scope.foo2 = true;
+            default:
+                return false;
+        }
+
+    }
 })

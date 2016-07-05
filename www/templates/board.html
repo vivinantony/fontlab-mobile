@@ -1,9 +1,10 @@
 <ion-view view-title="Font Lab" class="board-wrapper">
     <ion-content ng-class="{'has-subfooter': footer1}">
+        {{writeText}}
     </ion-content>
     <ion-footer-bar class="bar-subfooter subfooter-1" ng-if="footer1">
         <div class="button-bar">
-            <a class="button button-icon"><i class="fa fa-font fa-lg"></i></a>
+            <a class="button button-icon" ng-click="openModal('foo1')"><i class="fa fa-font fa-lg"></i></a>
             <a class="button button-icon"><i class="fa fa-bold fa-lg"></i></a>
             <a class="button button-icon"><i class="fa fa-italic fa-lg"></i></a>
             <a class="button button-icon"><i class="fa fa-underline fa-lg"></i></a>
